@@ -127,7 +127,7 @@ func main() {
 		log.Fatal("db.Begin:", err)
 	}
 
-	{{ .Func }}(txn)
+	{{ .Func }}(txn, &conf)
 
 	err = goose.FinalizeMigration(&conf, txn, {{ .Direction }}, {{ .Version }})
 	if err != nil {
